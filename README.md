@@ -123,10 +123,12 @@ Training highlights include pretrained COCO weights, AdamW optimization, cosine 
 
 Performance on the held-out validation set:
 
-Precision: 0.674  
-Recall: 0.908  
-mAP@50: 0.7125  
-mAP@50–95: 0.5453  
+| Metric      | Value  |
+|-------------|--------|
+| Precision   | 0.674  |
+| Recall      | 0.908  |
+| mAP@50      | 0.7125 |
+| mAP@50–95   | 0.5453 |
 
 High recall is intentional. For aerodynamic simulation, missing a component is more costly than detecting an extra one. Large, high-contrast components such as wheels, glass, and bumpers perform best, while mirrors and side lights remain challenging due to small size and symmetry.
 
@@ -151,9 +153,11 @@ print(components)
 
 Example output:
 
-wheel(0.98): (75, 260, 155, 340)  
-front_bumper(0.94): (112, 240, 398, 360)  
-front_glass(0.96): (140, 110, 420, 220)  
+| Component        | Confidence | Bounding Box (x1, y1, x2, y2) |
+|------------------|------------|-------------------------------|
+| wheel            | 0.98       | (75, 260, 155, 340)           |
+| front_bumper     | 0.94       | (112, 240, 398, 360)          |
+| front_glass      | 0.96       | (140, 110, 420, 220)          | 
 
 These detections can be normalized and ingested by aerodynamic surface estimators, drag and lift coefficient models, mesh-mask generators for CFD, and temporal tracking pipelines.
 
