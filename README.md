@@ -26,7 +26,10 @@ To achieve this, the system merges two heterogeneous public datasets, harmonizes
 
 ## Datasets
 
-This project integrates two datasets from **Roboflow Universe**.
+This project integrates two datasets from **Roboflow Universe**:
+
+- [Racecars Dataset](https://universe.roboflow.com/tyrone-brock/racecars-n6toi)
+- [Car Components Dataset](https://universe.roboflow.com/sammy/car-components-dataset)
 
 ### Racecars Dataset
 
@@ -158,7 +161,7 @@ These detections can be normalized and ingested by aerodynamic surface estimator
 
 The full project report is located at:
 
-report/final_report.tex  
+[Final Project Report (LaTeX)](RacecarComponentDetection.TeX)
 
 The document corresponds directly to the experiments and code in this repository.
 
