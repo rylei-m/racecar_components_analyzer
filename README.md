@@ -67,8 +67,7 @@ A custom preprocessing pipeline:
 
 ## Project Structure
 
-## Project Structure
-
+```text
 racecar-components-yolo/
 ├── data/
 │   ├── raw/
@@ -92,6 +91,7 @@ racecar-components-yolo/
 ├── report/
 │   └── final_report.tex
 └── README.md
+```
 
 ## Installation
 
