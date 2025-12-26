@@ -97,17 +97,23 @@ racecar-components-yolo/
 
 ### Create environment
 
-conda create -n racecar-yolo python=3.10 -y  
-conda activate racecar-yolo  
+```bash
+conda create -n racecar-yolo python=3.10 -y
+conda activate racecar-yolo
+```
 
 ### Install dependencies
 
+```bash
 pip install ultralytics opencv-python numpy matplotlib pyyaml  
 pip install jupyterlab ipykernel  
+```
 
 ## Build the Merged Dataset
 
+```bash
 python src/prepare_merged_dataset.py  
+```
 
 This generates YOLO-formatted train, validation, and test directories under data/merged.
 
@@ -115,7 +121,9 @@ This generates YOLO-formatted train, validation, and test directories under data
 
 Training uses the YOLOv8n (nano) architecture for fast iteration and real-time inference.
 
+```bash
 yolo task=detect mode=train model=yolov8n.pt data=data/merged/merged_data.yaml epochs=50 imgsz=640 batch=8 project=runs/train name=merged_racecar_components  
+```
 
 Training highlights include pretrained COCO weights, AdamW optimization, cosine learning rate decay, and geometric and photometric augmentations.
 
@@ -134,11 +142,15 @@ High recall is intentional. For aerodynamic simulation, missing a component is m
 
 ## Inference
 
+```bash
 python src/infer.py --model runs/train/merged_racecar_components/weights/best.pt --source path/to/image_or_directory  
+```
 
 ## Visualization
 
+```bash
 python src/visualize_predictions.py --model runs/train/merged_racecar_components/weights/best.pt --image example.jpg  
+```
 
 Annotated outputs are saved to the visualizations directory.
 
@@ -146,10 +158,15 @@ Annotated outputs are saved to the visualizations directory.
 
 The repository includes a clean Python interface for extracting detected components in a simulation-friendly format.
 
+```python
 from src.sim_interface import analyze_components  
 
-components = analyze_components("runs/train/merged_racecar_components/weights/best.pt", "frame.jpg")  
-print(components)  
+components = analyze_components(
+    "runs/train/merged_racecar_components/weights/best.pt",
+    "frame.jpg"
+)
+print(components)
+```
 
 Example output:
 
